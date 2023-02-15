@@ -1,9 +1,9 @@
 import style from './header.module.scss';
 import dark_logo from '../../images/header-logo.png';
 import light_logo from '../../images/footer-logo.png';
-import menu_icon from '../../images/icons/menu-icon.svg';
-import close_icon from '../../images/icons/close-icon.svg'
-import sprite from '../../images/symbol-defs.svg'
+import { ReactComponent as MenuIcon } from '../../images/icons/menu-icon.svg';
+import { ReactComponent as CloseIcon } from '../../images/icons/close-icon.svg'
+
 import { useState } from 'react';
 
 const links = [
@@ -38,21 +38,19 @@ const Header = () => {
 		<header>
 			<div className={style.wrapper}>
 				<a href="#"><img src={isOpen ? light_logo : dark_logo} alt="Logo" /></a>
-				<nav className={isOpen ? style.active : ''}>
-					<ul className={style.navigation}>
+				<nav className={isOpen ? style.active : null}>
+					<ul className={style.nav_list}>
 						{links.map(link => {
 							return (
-								<li><a href={link.link}>{link.value}</a></li>
+								<li className={style.nav_item}><a className={style.nav_link} href={link.link}>{link.value}</a></li>
 							)
 						})}
 					</ul>
 				</nav>
-				<button type='button' onClick={() => setIsOpen(!isOpen)} className={style.menu_btn} style={isOpen ? { backgroundImage: close_icon } : { backgroudImage: `${menu_icon}` }}>
+				<button type='button' onClick={() => setIsOpen(!isOpen)} className={style.menu_btn}>
+					{isOpen ? <CloseIcon /> : <MenuIcon />}
 				</button>
-
-
 			</div>
-
 		</header >
 	);
 };
