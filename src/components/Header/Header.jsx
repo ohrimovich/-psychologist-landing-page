@@ -37,7 +37,7 @@ const Header = () => {
 	return (
 		<header>
 			<div className={style.wrapper}>
-				<a href="#"><img src={isOpen ? light_logo : dark_logo} alt="Logo" /></a>
+				<a href="/"><img src={isOpen ? light_logo : dark_logo} alt="Logo" /></a>
 				<nav className={isOpen ? style.active : null}>
 					<ul className={style.nav_list}>
 						{links.map(link => {
