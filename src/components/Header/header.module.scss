@@ -9,18 +9,14 @@
   }
 
   .menu_btn {
-    display: none;
-    width: 32px;
-    height: 32px;
+    width: 54px;
+    height: 54px;
     border: none;
     background-color: transparent;
     z-index: 3;
     cursor: pointer;
 
-    @media screen and (max-width: 767px) {
-      display: block;
 
-    }
   }
 }
 
@@ -31,56 +27,10 @@ nav {
 
     .nav_item {
       &:not(:last-child) {
-        margin: 0 50px 0 0;
+        margin: 0 65px 0 0;
 
         @media screen and (max-width: 991px) {
-          margin: 0 25px 0 0;
-        }
-      }
-
-      &:last-child {
-        .nav_link {
-          font-family: 'Open sans';
-          font-weight: 500;
-          font-size: 16px;
-          position: relative;
-          color: var(--text-color-3);
-          padding: 15px 25px;
-          border: none;
-          border-radius: 50px;
-          background-color: transparent;
-          transition-property: all;
-          transition-duration: var(--duration);
-          transition-timing-function: var(--timing-function);
-
-          &::after {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            width: 100%;
-            height: 100%;
-            border: 2px solid var(--text-color-2);
-            border-radius: 50px;
-          }
-
-          &:hover {
-            cursor: pointer;
-            color: var(--primary-white);
-            background: var(--gradient-1);
-            box-shadow: 2px 2px 20px rgba(8, 179, 193, 0.16), -1px -1px 6px rgba(8, 179, 193, 0.1), inset -1px -1px 16px rgba(6, 137, 147, 0.04), inset 2px 2px 8px rgba(252, 253, 254, 0.16), inset 1px 1px 6px rgba(252, 253, 254, 0.14);
-            border-color: var(--gradient-1);
-
-            &::after {
-              border: none;
-            }
-          }
-
-          &:active {
-            color: var(--primary-white);
-            background: var(--gradient-3);
-            box-shadow: 2px 2px 20px rgba(8, 179, 193, 0.16), -1px -1px 6px rgba(8, 179, 193, 0.1), inset -1px -1px 16px rgba(6, 137, 147, 0.04), inset 2px 2px 8px rgba(252, 253, 254, 0.16), inset 1px 1px 6px rgba(252, 253, 254, 0.14);
-          }
+          margin: 0 20px 0 0;
         }
       }
 
@@ -98,15 +48,15 @@ nav {
     }
   }
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     position: fixed;
     top: 0;
-    left: 100%;
+    left: 0;
     right: 0;
     bottom: 0;
     width: 100%;
-    height: 100vh;
     background: var(--gradient-3);
+    transform: translateX(100%);
     transition-property: all;
     transition-duration: var(--duration);
     transition-timing-function: var(--timing-function);
@@ -138,6 +88,70 @@ nav {
   }
 }
 
+.consultation {
+  font-family: 'Open sans', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  position: relative;
+  color: var(--text-color-3);
+  padding: 13px 25px;
+  border: none;
+  border-radius: 50px;
+  background-color: transparent;
+  transition-property: all;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--text-color-2);
+    border-radius: 50px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    color: var(--primary-white);
+    background: var(--gradient-1);
+    box-shadow: 2px 2px 20px rgba(8, 179, 193, 0.16), -1px -1px 6px rgba(8, 179, 193, 0.1), inset -1px -1px 16px rgba(6, 137, 147, 0.04), inset 2px 2px 8px rgba(252, 253, 254, 0.16), inset 1px 1px 6px rgba(252, 253, 254, 0.14);
+    border-color: var(--gradient-1);
+
+    &::after {
+      border: none;
+    }
+  }
+
+  &:active {
+    color: var(--primary-white);
+    background: var(--gradient-3);
+    box-shadow: 2px 2px 20px rgba(8, 179, 193, 0.16), -1px -1px 6px rgba(8, 179, 193, 0.1), inset -1px -1px 16px rgba(6, 137, 147, 0.04), inset 2px 2px 8px rgba(252, 253, 254, 0.16), inset 1px 1px 6px rgba(252, 253, 254, 0.14);
+  }
+
+}
+
+.tablet_buttons {
+  display: none;
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    align-items: center;
+  }
+
+  .consultation {
+    margin-right: 30px;
+
+    @media only screen and (max-width: 560px),
+    (min-width: 769px) {
+      display: none;
+    }
+  }
+
+}
+
 .active {
-  left: 0;
+  transform: translateX(0);
 }
