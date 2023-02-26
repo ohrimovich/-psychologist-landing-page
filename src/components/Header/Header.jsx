@@ -3,24 +3,25 @@ import dark_logo from '../../images/header-logo.png';
 import light_logo from '../../images/footer-logo.png';
 import { ReactComponent as MenuIcon } from '../../images/icons/menu-icon.svg';
 import { ReactComponent as CloseIcon } from '../../images/icons/close-icon.svg'
-
 import { useState } from 'react';
+import Container from '../Container/Container';
+
 
 const links = [
 	{
-		link: '#about-me',
+		id: 'about-me',
 		value: 'Про мене',
 	},
 	{
-		link: '#services',
+		id: 'services',
 		value: 'Послуги',
 	},
 	{
-		link: '#prices',
+		id: 'prices',
 		value: 'Ціни',
 	},
 	{
-		link: '#contacts',
+		id: 'contacts',
 		value: 'Контакти',
 	}
 ]
@@ -30,28 +31,50 @@ const Header = () => {
 
 	const [isOpen, setIsOpen] = useState(false);
 
+	const handleClickScroll = (id) => {
+		const element = document.getElementById(id);
+		if (element) {
+			setIsOpen(!isOpen);
+			element.scrollIntoView({ behavior: 'smooth' });
+		}
+	}
+
 	return (
 
 		<header>
-			<div className={style.wrapper}>
-				<a href="/"><img src={isOpen ? light_logo : dark_logo} alt="Logo" /></a>
-				<nav className={isOpen ? style.active : null}>
-					<ul className={style.nav_list}>
-						{links.map(link => {
-							return (
-								<li key={link.link} className={style.nav_item}><a className={style.nav_link} href={link.link}>{link.value}</a></li>
-							)
-						})}
-						<li className={style.nav_item}> <a className={style.consultation} href="#consultation">Безкоштовна консультація</a></li>
-					</ul>
-				</nav>
-				<div className={style.tablet_buttons}>
-					{isOpen ? null : <a href='#consultation' className={style.consultation}>Безкоштовна консультація</a>}
-					<button type='button' onClick={() => setIsOpen(!isOpen)} className={style.menu_btn}>
-						{isOpen ? <CloseIcon /> : <MenuIcon />}
-					</button>
+			<Container>
+				<div className={style.wrapper}>
+					<a href="/"><img src={isOpen ? light_logo : dark_logo} alt="Logo" /></a>
+					<nav className={isOpen ? style.active : null}>
+						<ul className={style.nav_list}>
+							{links.map(link => {
+								return (
+									<li key={link.id} className={style.nav_item}>
+										<button
+											className={style.nav_link}
+											onClick={() => {
+												handleClickScroll(link.id)
+											}}>
+											{link.value}</button></li>
+								)
+							})}
+							<li className={style.nav_item}> <button type='button' className={style.consultation}
+								onClick={() => {
+									handleClickScroll('consultation')
+								}}>Безкоштовна консультація</button></li>
+						</ul>
+					</nav>
+					<div className={style.tablet_buttons}>
+						{isOpen ? null : <button type='button' className={style.consultation}
+							onClick={() => {
+								handleClickScroll('consultation')
+							}}>Безкоштовна консультація</button>}
+						<button type='button' onClick={() => setIsOpen(!isOpen)} className={style.menu_btn}>
+							{isOpen ? <CloseIcon /> : <MenuIcon />}
+						</button>
+					</div>
 				</div>
-			</div>
+			</Container>
 		</header >
 
 

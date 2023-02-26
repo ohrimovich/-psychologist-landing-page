@@ -1,8 +1,8 @@
 import style from './container.module.scss';
 
-const Container = ({ children }) => {
+function Container({ children, padding }) {
 	return (
-		<div className={style.container}>{children}</div>
+		<div className={style.container} style={{ padding: padding }}>{children}</div>
 	);
 };
 
