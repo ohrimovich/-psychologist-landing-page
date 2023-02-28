@@ -1,0 +1,16 @@
+.individual {
+  background: var(--gradient-3);
+
+  .wrapper {
+    display: flex;
+
+    .content {
+      padding: 85px 0 225px 0;
+    }
+
+    img {
+      max-width: 760px;
+      height: auto;
+    }
+  }
+}

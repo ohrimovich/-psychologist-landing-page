@@ -10,7 +10,7 @@
   --error-color: #FF304F;
   --gradient-1: linear-gradient(92.07deg, #079FAC 1.74%, #134F61 364.78%);
   --gradient-2: linear-gradient(180deg, #08B6C4 0%, #134F61 206.68%);
-  --gradient-3: linear-gradient(265.13deg, #134F61 2.53%, #08B6C4 195.98%);
+  --gradient-3: linear-gradient(264.09deg, #134F61 2.56%, #08B6C4 267.74%);
   --gradient-4: linear-gradient(283.08deg, #134F61 -27.76%, #08B6C4 188.57%);
   --desctop-title-font-size: 48px;
   --mobile-title-font-size: 36px;
@@ -135,4 +135,10 @@ input {
 
 a {
   text-decoration: none;
+}
+
+@media screen and (max-width: 991px) {
+  h2 {
+    font-size: 36px;
+  }
 }
