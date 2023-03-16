@@ -53,7 +53,7 @@ const Sevices = () => {
         <ul className={style.services_list}>
           {servicesList.map(item => {
             return (
-              <li className={style.services_item}><img src={item.imgPath} alt={item.alt} /><p>{item.text}</p></li>
+              <li key={item.alt} className={style.services_item}><img src={item.imgPath} alt={item.alt} /><p>{item.text}</p></li>
             )
           })}
         </ul>

@@ -4,7 +4,7 @@ import Container from '../Container/Container';
 
 const AboutMe = () => {
   return (
-    <Container padding={window.innerWidth < 705 ? 0 : null}>
+    <Container >
       <section id='about-me' className={style.about_me}>
         <div className={style.wrapper}>
           <img src={about_me} alt="Марія в кріслі" />
