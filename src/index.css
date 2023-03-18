@@ -118,14 +118,21 @@ h2 {
 
 }
 
+h3 {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.417;
+}
+
 ul {
   list-style: none;
 }
 
 p {
-  font-family: 'Open Sans', sans-serif !important;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   line-height: 1.375;
+  color: var(--text-color-1);
   margin: 0;
 }
 
@@ -140,5 +147,11 @@ a {
 @media screen and (max-width: 991px) {
   h2 {
     font-size: 36px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  h2 {
+    font-size: 32px;
   }
 }

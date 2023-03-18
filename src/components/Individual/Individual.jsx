@@ -15,7 +15,7 @@ const Individual = () => {
           <div  className={style.image_wrapper}>
              <img
              src={Maria_mobile}
-             srcSet={`${Maria_mobile} 768w, ${Maria_desktop} 1280w, `}
+             srcSet={`${Maria_mobile} 705w, ${Maria_desktop} 1280w, `}
              alt="Психолог Марія Янчук"
            />
           </div>
