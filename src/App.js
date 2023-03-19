@@ -9,6 +9,7 @@ import Prices from './components/Prices/Prices';
 import Features from "./components/Features/Features";
 import Consultation from "./components/Consultation/Consultation";
 import Contacts from "./components/Contacts/Contacts";
+import Footer from "./components/Footer/Footer";
 
 function App() {
 	return (
@@ -22,7 +23,8 @@ function App() {
       <Prices />
       <Features />
       <Consultation />
-      <Contacts/>
+      <Contacts />
+      <Footer />
     </div>
   );
 }
