@@ -46,7 +46,7 @@ const Prices = () => {
               <p className={style.quantity}>{ card.quantityOfSessions}</p>
               <p className={style.duration}>{ card.durationOfSession}</p>
               <p className={style.descr}>{ card.descr}</p>
-              <button>{ card.buttonText}</button>
+              <button type='button'>{ card.buttonText}</button>
           </li>
           )
         })}

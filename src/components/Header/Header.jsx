@@ -2,7 +2,7 @@ import style from './header.module.scss';
 import dark_logo from '../../images/header-logo.png';
 import light_logo from '../../images/footer-logo.png';
 import { ReactComponent as MenuIcon } from '../../images/icons/menu-icon.svg';
-import { ReactComponent as CloseIcon } from '../../images/icons/close-icon.svg'
+import { ReactComponent as CloseIcon } from '../../images/icons/close-icon.svg';
 import { useState } from 'react';
 import Container from '../Container/Container';
 

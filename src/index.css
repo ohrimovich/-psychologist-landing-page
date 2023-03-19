@@ -115,7 +115,7 @@ h2 {
   font-size: 48px;
   font-weight: 400;
   line-height: 1.334;
-
+  color: var(--text-color-1);
 }
 
 h3 {
@@ -136,7 +136,10 @@ p {
   margin: 0;
 }
 
-input {
+input, textarea {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.375;
   outline: none;
 }
 
