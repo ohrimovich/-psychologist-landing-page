@@ -10,6 +10,7 @@ import Features from "./components/Features/Features";
 import Consultation from "./components/Consultation/Consultation";
 import Contacts from "./components/Contacts/Contacts";
 import Footer from "./components/Footer/Footer";
+import GoTopButton from "./components/GoTopButton/GoTopButton";
 
 function App() {
 	return (
@@ -25,6 +26,7 @@ function App() {
       <Consultation />
       <Contacts />
       <Footer />
+      <GoTopButton/>
     </div>
   );
 }

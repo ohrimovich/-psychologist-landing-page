@@ -3,7 +3,7 @@ import dark_logo from '../../images/header-logo.png';
 import light_logo from '../../images/footer-logo.png';
 import { ReactComponent as MenuIcon } from '../../images/icons/menu-icon.svg';
 import { ReactComponent as CloseIcon } from '../../images/icons/close-icon.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Container from '../Container/Container';
 
 
@@ -31,10 +31,12 @@ const Header = () => {
 
 	const [isOpen, setIsOpen] = useState(false);
 
+	useEffect(() => {
+		isOpen ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'visible';
+	})
 	const handleClickScroll = (id) => {
 		const element = document.getElementById(id);
 		if (element) {
-			setIsOpen(!isOpen);
 			element.scrollIntoView({ behavior: 'smooth' });
 		}
 	}
@@ -53,6 +55,7 @@ const Header = () => {
 										<button
 											className={style.nav_link}
 											onClick={() => {
+												setIsOpen(!isOpen)
 												handleClickScroll(link.id)
 											}}>
 											{link.value}</button></li>
@@ -60,6 +63,7 @@ const Header = () => {
 							})}
 							<li className={style.nav_item}> <button type='button' className={style.consultation}
 								onClick={() => {
+									setIsOpen(!isOpen)
 									handleClickScroll('consultation')
 								}}>Безкоштовна консультація</button></li>
 						</ul>

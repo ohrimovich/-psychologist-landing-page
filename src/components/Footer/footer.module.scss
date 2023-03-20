@@ -43,6 +43,10 @@ footer {
         &:not(:last-child) {
           margin: 0 0 25px;
         }
+
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
 

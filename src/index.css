@@ -14,7 +14,7 @@
   --gradient-4: linear-gradient(283.08deg, #134F61 -27.76%, #08B6C4 188.57%);
   --desctop-title-font-size: 48px;
   --mobile-title-font-size: 36px;
-  --duration: 500ms;
+  --duration: 250ms;
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 

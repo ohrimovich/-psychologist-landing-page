@@ -3,9 +3,6 @@ import Container from '../Container/Container';
 import logo from '../../images/footer-logo.png';
 import { ReactComponent as EnvelopIcon } from '../../images/icons/envelop-icon.svg';
 import { ReactComponent as PhoneIcon } from '../../images/icons/phone-icon.svg';
-import { ReactComponent as TelegramIcon } from '../../images/icons/telegram-icon.svg';
-import { ReactComponent as ViberIcon } from '../../images/icons/viber-icon.svg';
-import { ReactComponent as WhatsappIcon } from '../../images/icons/whatsapp-icon.svg';
 
 const Footer = () => {
 
@@ -34,11 +31,6 @@ const Footer = () => {
           <li className={style.work_time}>
             <h3>Час роботи</h3>
             <p>Пн-Пт: 10:00-19:00, Сб-Нд: вихідні</p>
-            <div className={style.icons_wrapper}>
-              <WhatsappIcon/>
-              <ViberIcon/>
-              <TelegramIcon/>
-            </div>
           </li>
           <li className={style.contacts}>
             <h3>Контакти</h3>
