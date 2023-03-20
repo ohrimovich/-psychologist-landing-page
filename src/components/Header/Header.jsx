@@ -30,9 +30,22 @@ const links = [
 const Header = () => {
 
 	const [isOpen, setIsOpen] = useState(false);
+	const [windowWidth, setWindowWidth] = useState([window.innerWidth]);
 
 	useEffect(() => {
-		isOpen ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'visible';
+		const handleWindowResize = () => {
+			setWindowWidth(window.innerWidth);
+		}
+		window.addEventListener('resize', handleWindowResize);
+		
+		if (windowWidth <= 768) {
+				isOpen ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'visible';
+		} else {
+			setIsOpen(false);
+		}
+		 return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
 	})
 	const handleClickScroll = (id) => {
 		const element = document.getElementById(id);
@@ -70,9 +83,8 @@ const Header = () => {
 					</nav>
 					<div className={style.tablet_buttons}>
 						{isOpen ? null : <button type='button' className={style.consultation}
-							onClick={() => {
-								handleClickScroll('consultation')
-							}}>Безкоштовна консультація</button>}
+							onClick={() => { handleClickScroll('consultation') }}>
+							Безкоштовна консультація</button>}
 						<button type='button' onClick={() => setIsOpen(!isOpen)} className={style.menu_btn}>
 							{isOpen ? <CloseIcon /> : <MenuIcon />}
 						</button>
