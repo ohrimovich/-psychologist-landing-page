@@ -9,7 +9,8 @@ const cards = [
     quantityOfSessions: '3 сесії',
     durationOfSession: '50 хвилин / 1 сесія',
     descr: 'Для тих, хто цінує свій час та планує зустрічі заздалегідь',
-    buttonText: 'Записатися'
+    buttonText: 'Записатися',
+    shouldOpenModal: true
   },
   {
     title: 'Індивідуальні консультації',
@@ -18,7 +19,8 @@ const cards = [
     quantityOfSessions: '1 сесії',
     durationOfSession: '50 хвилин',
     descr: 'Зручний спосіб отримати допомогу не зважаючи на ваше розташування',
-    buttonText: 'Записатися'
+    buttonText: 'Записатися',
+    shouldOpenModal: true
   },
   {
     title: 'Індивідуальні консультації',
@@ -27,11 +29,30 @@ const cards = [
     quantityOfSessions: '1 сесії',
     durationOfSession: 'Питання — Відповідь',
     descr: 'Опишіть вашу проблему та тримайте  швидку безкоштовну допомогу',
-    buttonText: 'Записатися'
+    buttonText: 'Записатися',
+    shouldOpenModal: ''
   },
 ]
 
-const Prices = () => {
+const Prices = ({isModalOpen}) => {
+  
+  const handleClick = (e) => {
+    if (e.target.getAttribute('data-modal')) {
+      isModalOpen(true);
+      return
+    }
+
+    handleScroll('consultation')
+  }
+
+  	const handleScroll = (id) => {
+      const element = document.getElementById(id);
+      
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+	}
+  
   return (
     <section className={style.prices} id='prices'>
       <Container>
@@ -46,7 +67,7 @@ const Prices = () => {
               <p className={style.quantity}>{ card.quantityOfSessions}</p>
               <p className={style.duration}>{ card.durationOfSession}</p>
               <p className={style.descr}>{ card.descr}</p>
-              <button type='button'>{ card.buttonText}</button>
+              <button type='button' data-modal={card.shouldOpenModal} onClick={handleClick}>{ card.buttonText}</button>
           </li>
           )
         })}

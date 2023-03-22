@@ -46,7 +46,7 @@ const Header = () => {
 		 return () => {
       window.removeEventListener('resize', handleWindowResize);
     };
-	})
+	},[windowWidth, isOpen])
 	const handleClickScroll = (id) => {
 		const element = document.getElementById(id);
 		if (element) {

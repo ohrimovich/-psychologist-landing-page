@@ -11,22 +11,27 @@ import Consultation from "./components/Consultation/Consultation";
 import Contacts from "./components/Contacts/Contacts";
 import Footer from "./components/Footer/Footer";
 import GoTopButton from "./components/GoTopButton/GoTopButton";
+import Modal from "./components/Modal/Modal";
+import { useState } from 'react';
 
 function App() {
+
+  const [modalActive, setModalActive] = useState(false);
 	return (
     <div className="App">
       <Circles />
       <Header />
-      <Hero />
+      <Hero isModalOpen={setModalActive} />
       <AboutMe />
       <Services />
       <Individual />
-      <Prices />
+      <Prices isModalOpen={setModalActive} />
       <Features />
       <Consultation />
       <Contacts />
       <Footer />
-      <GoTopButton/>
+      <GoTopButton />
+      <Modal active={ modalActive} setActive={setModalActive} />
     </div>
   );
 }
