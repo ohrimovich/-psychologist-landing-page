@@ -11,8 +11,8 @@
   z-index: 10;
   opacity: 0;
   pointer-events: none;
-  transition-property: opacity;
-  transition-duration: 500ms;
+  transition-property: all;
+  transition-duration: 250ms;
   transition-timing-function: var(--timing-function);
 
   .modal {
@@ -183,6 +183,9 @@
     border-radius: 35px;
     box-shadow: 2px 2px 20px rgba(8, 179, 193, 0.16), -1px -1px 6px rgba(8, 179, 193, 0.1), inset -1px -1px 16px rgba(6, 137, 147, 0.04), inset 2px 2px 8px rgba(252, 253, 254, 0.16), inset 1px 1px 6px rgba(252, 253, 254, 0.14);
     z-index: 3;
+    transition-property: all;
+    transition-duration: var(--duration);
+    transition-timing-function: var(--timing-function);
 
     .icon_wrapper {
       width: 74px;

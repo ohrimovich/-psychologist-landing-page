@@ -17,6 +17,8 @@ import { useState } from 'react';
 function App() {
 
   const [modalActive, setModalActive] = useState(false);
+  const [thanksModalShow, setThanksModalShow] = useState(false);
+
 	return (
     <div className="App">
       <Circles />
@@ -27,11 +29,11 @@ function App() {
       <Individual />
       <Prices isModalOpen={setModalActive} />
       <Features />
-      <Consultation />
+      <Consultation isModalOpen={setModalActive} setThanksModalShow={setThanksModalShow} />
       <Contacts />
       <Footer />
       <GoTopButton />
-      <Modal active={ modalActive} setActive={setModalActive} />
+      <Modal active={ modalActive} setActive={setModalActive} thanksModalShow={thanksModalShow} setThanksModalShow={setThanksModalShow} />
     </div>
   );
 }
