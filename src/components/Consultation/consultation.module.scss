@@ -46,7 +46,7 @@
       input, textarea {
         width: 100%;
         padding: 15px 25px;
-        border: none;
+        border: 1px solid transparent;
         border-radius: 100px;
         box-shadow: 2px 2px 8px rgba(18, 84, 102, 0.16), inset 2px 2px 4px rgba(8, 182, 196, 0.1);
         margin: 0 0 25px;
@@ -54,6 +54,19 @@
 
         &::placeholder {
           color: var(--form-text-color-1);
+        }
+
+        &:focus:invalid {
+          border: 1px solid var(--error-color);
+
+          & + p {
+            visibility: visible;
+          }
+
+        }
+
+        &:invalid:not(:placeholder-shown) {
+          border: 1px solid var(--error-color);
         }
         
       }
@@ -64,7 +77,16 @@
         resize: none;
       } 
       
+      .error_message {
+        font-size: 12px;
+        font-weight: 400;
+        color: #E0313A;
+        margin: -16px 0 5px 25px;
+        visibility: hidden;
+
+      }
     }
+   
 
     button {
       font-family: 'Open sans', sans-serif;

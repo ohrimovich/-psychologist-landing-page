@@ -16,7 +16,11 @@
     z-index: 3;
     cursor: pointer;
 
-
+    .close_icon {
+        path {
+          fill: #CAFAEE;
+        }
+      }
   }
 }
 
@@ -73,6 +77,7 @@ nav {
 
       .nav_item {
         .nav_link {
+          font-size: 24px;
           color: var(--primary-white);
         }
 
@@ -87,6 +92,14 @@ nav {
             color: var(--primary-white);
           }
         }
+      }
+    }
+
+    .consultation {
+      color: var(--primary-white);
+
+      &::after {
+        border: 2px solid #CAFAEE;
       }
     }
 
@@ -149,7 +162,7 @@ nav {
   .consultation {
     margin-right: 30px;
 
-    @media only screen and (max-width: 560px),
+    @media screen and (max-width: 560px),
     (min-width: 769px) {
       display: none;
     }

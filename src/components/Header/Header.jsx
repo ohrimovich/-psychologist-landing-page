@@ -86,7 +86,7 @@ const Header = () => {
 							onClick={() => { handleClickScroll('consultation') }}>
 							Безкоштовна консультація</button>}
 						<button type='button' onClick={() => setIsOpen(!isOpen)} className={style.menu_btn}>
-							{isOpen ? <CloseIcon /> : <MenuIcon />}
+							{isOpen ? <CloseIcon className={ style.close_icon} /> : <MenuIcon />}
 						</button>
 					</div>
 				</div>
