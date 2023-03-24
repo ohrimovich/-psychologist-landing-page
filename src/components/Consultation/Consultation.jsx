@@ -41,8 +41,9 @@ const Consultation = ({ isModalOpen, setThanksModalShow }) => {
       console.warn(err)
     })
   }
-
-    form.addEventListener('submit',submitHandler);
+    form.addEventListener('submit', submitHandler);
+    
+    return () => {form.removeEventListener('submit', submitHandler)}
   })
   
   return (

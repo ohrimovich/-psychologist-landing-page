@@ -14,15 +14,14 @@ const Modal = ({ active, setActive, setThanksModalShow, thanksModalShow }) => {
     const CHAT_ID = process.env.REACT_APP_CHAT_ID;
     const URI_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`
     const form = document.getElementById('modal-form');
+   
     function submitHandler(e) {
-       e.preventDefault();
-     
+      e.preventDefault();
+
       let message = `<b>Заявка на індивідуальну консультацію</b>\n`;
       message += `<b>Відправник: </b>${this.name.value}\n`
       message += `<b>Номер телефону: </b>${this.phone.value}\n`
 
-      
-      
       axios.post(URI_API, {
         chat_id: CHAT_ID,
         parse_mode: 'html',
@@ -39,7 +38,7 @@ const Modal = ({ active, setActive, setThanksModalShow, thanksModalShow }) => {
     }
 
      form.addEventListener('submit', submitHandler);
-    
+     return () => {form.removeEventListener('submit', submitHandler)}
    })
   
    const closingModal = () => {
