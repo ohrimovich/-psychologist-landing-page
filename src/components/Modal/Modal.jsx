@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import style from './modal.module.scss'
+import axios from 'axios';
+import style from './modal.module.scss';
 import { ReactComponent as CloseIcon } from '../../images/icons/close-icon.svg';
 import { ReactComponent as PhoneIcon } from '../../images/icons/phone-icon.svg';
 import { ReactComponent as OkIcon } from '../../images/icons/ok-icon.svg';
@@ -7,7 +8,11 @@ import { ReactComponent as OkIcon } from '../../images/icons/ok-icon.svg';
 const Modal = ({ active, setActive, setThanksModalShow, thanksModalShow }) => {
   
  
-   useEffect(() => {
+  useEffect(() => {
+     console.log(process.env);
+    const TOKEN = process.env.REACT_APP_TOKEN;
+    const CHAT_ID = process.env.REACT_APP_CHAT_ID;
+    const URI_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`
     const form = document.getElementById('modal-form');
     function submitHandler(e) {
        e.preventDefault();
@@ -16,12 +21,21 @@ const Modal = ({ active, setActive, setThanksModalShow, thanksModalShow }) => {
       message += `<b>Відправник: </b>${this.name.value}\n`
       message += `<b>Номер телефону: </b>${this.phone.value}\n`
 
-        console.log(message);
-        
-      this.name.value = '';
-      this.phone.value = '';
       
-      setThanksModalShow(true);
+      
+      axios.post(URI_API, {
+        chat_id: CHAT_ID,
+        parse_mode: 'html',
+        text: message
+      })
+        .then((res) => {
+          this.name.value = '';
+          this.phone.value = '';
+          setThanksModalShow(true);
+      })
+        .catch((err) => {
+        console.warn(err)
+      })
     }
 
      form.addEventListener('submit', submitHandler);
@@ -35,7 +49,7 @@ const Modal = ({ active, setActive, setThanksModalShow, thanksModalShow }) => {
 
   return (
     <div className={style.overlay} style={active ? { pointerEvents: 'all', opacity: '1' } : {}} onClick={closingModal}>
-      <div className={style.modal} onClick={e => e.stopPropagation() }>
+      <div className={style.modal} onClick={e => e.stopPropagation() } style={active ? {opacity: '1'} : {opacity: '0'} }>
         <h2>Записятися на консультацію</h2>
         <p className={style.text}>Не любите чекати? Телефонуйте мені:</p>
         <p className={style.tel}><PhoneIcon/><a href="tel:+380933564239">+38 (093) 35 642 39</a></p>

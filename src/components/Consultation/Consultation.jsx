@@ -2,6 +2,7 @@ import style from './consultation.module.scss';
 import Container from '../Container/Container';
 import consultationImg from '../../images/consultation-img.png';
 import { useEffect } from 'react';
+import axios from 'axios';
 
 
 const Consultation = ({ isModalOpen, setThanksModalShow }) => {
@@ -12,6 +13,10 @@ const Consultation = ({ isModalOpen, setThanksModalShow }) => {
   }
 
   useEffect(() => {
+
+    const TOKEN = process.env.REACT_APP_TOKEN;
+    const CHAT_ID = process.env.REACT_APP_CHAT_ID;
+    const URI_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`
     const form = document.getElementById('form');
     function submitHandler(e) {
        e.preventDefault();
@@ -20,17 +25,22 @@ const Consultation = ({ isModalOpen, setThanksModalShow }) => {
       message += `<b>Відправник: </b>${this.name.value}\n`
       message += `<b>Номер телефону: </b>${this.phone.value}\n`
       message += `<b>Запитання: </b>${this.question.value}`
-
-        console.log(message);
-        
-      this.name.value = '';
-      this.phone.value = '';
-      this.question.value = '';
-
-      showingThanksModal();
       
-    
-    }
+      axios.post(URI_API, {
+      chat_id: CHAT_ID,
+      parse_mode: 'html',
+      text: message
+    })
+      .then((res) => {
+        this.name.value = '';
+        this.phone.value = '';
+        this.question.value = '';
+        showingThanksModal();
+    })
+      .catch((err) => {
+      console.warn(err)
+    })
+  }
 
     form.addEventListener('submit',submitHandler);
   })
