@@ -1,0 +1,37 @@
+.go_top_button {
+  position: fixed;
+  right: 100px;
+  bottom: 40px;
+  width: 95px;
+  height: 95px;
+  border: none;
+  background-color: var(--primary-white);
+  border-radius: 50%;
+  box-shadow: 2px 2px 80px rgba(8, 182, 196, 0.16);
+  transition-property: all;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
+  cursor: pointer;
+  z-index: 3;
+
+  &:hover {
+    box-shadow: 1px 1px 20px rgba(8, 182, 196, 0.3);
+    svg {
+      path {
+        fill: var(--form-text-color-2);
+      }
+    }
+  }
+
+     @media screen and (max-width: 705px) { 
+      right: 50px;
+      width: 65px;
+      height: 65px;
+       
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+
+     }
+}

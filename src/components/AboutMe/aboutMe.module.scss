@@ -1,0 +1,67 @@
+.about_me {
+  background: var(--gradient-4);
+  border-radius: 100px;
+  overflow: hidden;
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+
+    img {
+      display: block;
+      max-width: 522px;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .title {
+      color: var(--primary-white);
+      margin: 0 0 30px;
+    }
+
+    .content {
+      padding: 0 15px;
+    }
+
+    p {
+      max-width: 550px;
+      color: var(--primary-white);
+
+      &:not(:last-child) {
+        margin: 0 0 15px;
+      }
+
+    }
+
+    @media screen and (max-width: 991px) {
+      img {
+        max-width: 400px;
+        align-self: end;
+      }
+
+      .content {
+        margin: 80px 0px 115px -115px;
+      }
+    }
+
+  }
+
+  @media screen and (max-width: 705px) {
+    margin: 0 -15px;
+    border-radius: 35px;
+
+    .wrapper {
+      flex-wrap: wrap-reverse;
+
+      .content {
+        margin: 60px auto 40px auto;
+
+        .title {
+          text-align: center;
+        }
+      }
+    }
+
+  }
+}
