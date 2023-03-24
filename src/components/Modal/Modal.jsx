@@ -9,7 +9,7 @@ const Modal = ({ active, setActive, setThanksModalShow, thanksModalShow }) => {
   
  
   useEffect(() => {
-     console.log(process.env);
+  
     const TOKEN = process.env.REACT_APP_TOKEN;
     const CHAT_ID = process.env.REACT_APP_CHAT_ID;
     const URI_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`
