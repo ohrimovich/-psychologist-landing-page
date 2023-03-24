@@ -65,29 +65,29 @@ const Header = () => {
 							{links.map(link => {
 								return (
 									<li key={link.id} className={style.nav_item}>
-										<a
+										<button
 											className={style.nav_link}
 											onClick={() => {
 												setIsOpen(!isOpen)
 												handleClickScroll(link.id)
 											}}>
-											{link.value}</a></li>
+											{link.value}</button></li>
 								)
 							})}
-							<li className={style.nav_item}> <a className={style.consultation}
+							<li className={style.nav_item}> <button href='' className={style.consultation}
 								onClick={() => {
 									setIsOpen(!isOpen)
 									handleClickScroll('consultation')
-								}}>Безкоштовна консультація</a></li>
+								}}>Безкоштовна консультація</button></li>
 						</ul>
 					</nav>
 					<div className={style.tablet_buttons}>
-						{isOpen ? null : <a className={style.consultation}
+						{isOpen ? null : <button className={style.consultation}
 							onClick={() => { handleClickScroll('consultation') }}>
-							Безкоштовна консультація</a>}
-						<a onClick={() => setIsOpen(!isOpen)} className={style.menu_btn}>
+							Безкоштовна консультація</button>}
+						<button onClick={() => setIsOpen(!isOpen)} className={style.menu_btn}>
 							{isOpen ? <CloseIcon className={ style.close_icon} /> : <MenuIcon />}
-						</a>
+						</button>
 					</div>
 				</div>
 			</Container>
