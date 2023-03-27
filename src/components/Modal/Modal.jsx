@@ -51,11 +51,11 @@ const Modal = ({ active, setActive, setThanksModalShow, thanksModalShow }) => {
       <div className={style.modal} onClick={e => e.stopPropagation() } style={active ? {opacity: '1'} : {opacity: '0'} }>
         <h2>Записятися на консультацію</h2>
         <p className={style.text}>Не любите чекати? Телефонуйте мені:</p>
-        <p className={style.tel}><PhoneIcon/><a href="tel:+380933564239">+38 (093) 35 642 39</a></p>
+        <p className={style.tel}><PhoneIcon/><a href="tel:+380976945250">+38 (097) 69 452 50</a></p>
         <CloseIcon className={style.close_icon } onClick={() => setActive(false)} />
         <form id='modal-form'>
           <label>
-            <input type="text" name='name' placeholder="Ваше ім'я" required minLength='1' pattern='^[А-Яа-я]+$' />
+            <input type="text" name='name' placeholder="Ваше ім'я" required minLength='1' pattern="^[А-Яа-яЁёЇїІіЄєҐґ']+$" />
             <p className={style.error_message}>Вкажіть ваше ім'я</p>
           </label>
           <label>

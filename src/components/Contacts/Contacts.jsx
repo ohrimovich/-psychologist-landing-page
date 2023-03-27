@@ -19,8 +19,8 @@ const Contacts = () => {
             <h3 className={style.subtitle}>Графік роботи</h3>
             <ul>
               <li><ClockIcon className={ style.icon} />Пн-Пт: 10:00-19:00, Сб-Нд: вихідні</li>
-              <li><EnvelopIcon className={ style.icon}/><a href="mailto:maria120631@gmail.com">maria120631@gmail.com</a></li>
-              <li><PhoneIcon className={ style.icon}/><a href="tel:+380933564239">+38 (093) 35 642 39</a></li>
+              <li><EnvelopIcon className={ style.icon}/><a href="mailto:info@mariiayanchuk.com.ua">info@mariiayanchuk.com.ua</a></li>
+              <li><PhoneIcon className={ style.icon}/><a href="tel:+380976945250">+38 (097) 69 452 50</a></li>
             </ul>
 
           </div>

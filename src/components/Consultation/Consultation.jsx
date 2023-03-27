@@ -59,7 +59,7 @@ const Consultation = ({ isModalOpen, setThanksModalShow }) => {
           <form id='form'>
             <p>Опишіть ваше питання чи проблему і я зв'яжусь з вами</p>
             <label>
-              <input placeholder="Ваше ім'я" required minLength='1' pattern='^[А-Яа-я]+$' type="text" name='name' />
+              <input placeholder="Ваше ім'я" required minLength='1' pattern="^[А-Яа-яЁёЇїІіЄєҐґ']+$" type="text" name='name' />
               <p className={style.error_message}>Вкажіть ваше ім'я</p>
             </label>
             <label>
