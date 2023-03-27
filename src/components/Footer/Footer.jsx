@@ -1,6 +1,6 @@
 import style from './footer.module.scss';
 import Container from '../Container/Container';
-import logo from '../../images/footer-logo.png';
+import { ReactComponent as LightLogo } from '../../images/footer-logo.svg';
 import { ReactComponent as EnvelopIcon } from '../../images/icons/envelop-icon.svg';
 import { ReactComponent as PhoneIcon } from '../../images/icons/phone-icon.svg';
 
@@ -18,7 +18,7 @@ const Footer = () => {
       <Container>
         <ul className={style.wrapper}>
           <li className={style.logo_wrapper}>
-            <img className={style.logo} src={logo} alt="logo" />
+            <LightLogo className={style.logo } />
             <p>Персональний сайт психолога Марії Янчук <br/>&#169; Всі права захищені 2022</p>
             <p>Політика конфіденційності</p>
           </li>
@@ -34,8 +34,8 @@ const Footer = () => {
           </li>
           <li className={style.contacts}>
             <h3>Контакти</h3>
-            <p><EnvelopIcon/><a href="mailto:maria120631@gmail.com">maria120631@gmail.com</a></p>
-            <p><PhoneIcon/><a href="tel:+380933564239">+38 (093) 35 642 39</a></p>
+            <p><EnvelopIcon/><a href="mailto:info@mariiayanchuk.com.ua">info@mariiayanchuk.com.ua</a></p>
+            <p><PhoneIcon/><a href="tel:+380976945250">+38 (097) 69 452 50</a></p>
           </li>
         </ul>
       </Container>

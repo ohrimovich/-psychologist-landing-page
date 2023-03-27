@@ -1,6 +1,6 @@
 import style from './header.module.scss';
-import dark_logo from '../../images/header-logo.png';
-import light_logo from '../../images/footer-logo.png';
+import { ReactComponent as DarkLogo } from '../../images/header-logo.svg';
+import { ReactComponent as LightLogo } from '../../images/footer-logo.svg';
 import { ReactComponent as MenuIcon } from '../../images/icons/menu-icon.svg';
 import { ReactComponent as CloseIcon } from '../../images/icons/close-icon.svg';
 import { useEffect, useState } from 'react';
@@ -59,7 +59,8 @@ const Header = () => {
 		<header>
 			<Container>
 				<div className={style.wrapper}>
-					<a href="/"><img src={isOpen ? light_logo : dark_logo} alt="Logo" /></a>
+					<a href="/">{ isOpen ? <LightLogo/> : <DarkLogo/>}</a>
+					
 					<nav className={isOpen ? style.active : null}>
 						<ul className={style.nav_list}>
 							{links.map(link => {
