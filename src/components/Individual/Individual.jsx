@@ -1,9 +1,24 @@
-import style from './individual.module.scss'
+import { useEffect, useState } from 'react';
+import style from './individual.module.scss';
 import Container from '../Container/Container';
-import Maria_desktop from '../../images/Maria-desktop.png'
-import Maria_mobile from '../../images/Maria-mobile.png'
+import Maria_desktop from '../../images/Maria-desktop.png';
+import Maria_mobile from '../../images/Maria-mobile.png';
 
 const Individual = () => {
+
+  const [windowWidth, setWindowWidth] = useState([window.innerWidth]);
+
+	useEffect(() => {
+		const handleWindowResize = () => {
+			setWindowWidth(window.innerWidth);
+		}
+		window.addEventListener('resize', handleWindowResize);
+		
+		 return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  }, [windowWidth])
+  
   return (
     <section className={style.individual}>
       <Container>
@@ -14,8 +29,7 @@ const Individual = () => {
           </div>
           <div  className={style.image_wrapper}>
              <img
-             src={Maria_mobile}
-             srcSet={`${Maria_mobile} 705w, ${Maria_desktop} 1280w, `}
+             src={windowWidth <= 705 ? Maria_mobile : Maria_desktop }
              alt="Психолог Марія Янчук"
            />
           </div>
