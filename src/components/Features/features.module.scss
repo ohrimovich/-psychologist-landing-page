@@ -35,6 +35,7 @@
   }
 
   .bg {
+    width: 1258px;
       position: absolute;
       top: -172px;
       left: 50%;
@@ -55,10 +56,13 @@
           flex-wrap: wrap;
 
           li {
-            width: 160px;
+            width: 140px;
 
             &:nth-child(-n+2) {
                 margin: 0 0 30px;
+              }
+              p {
+                font-size: 16px;
               }
           }
         }
