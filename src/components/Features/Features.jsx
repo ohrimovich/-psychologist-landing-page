@@ -1,6 +1,6 @@
 import style from './features.module.scss';
 import Container from '../Container/Container';
-import bg from '../../images/features-bg.png'
+import bg from '../../images/bg_ellipse.png'
 
 const features = [
   {

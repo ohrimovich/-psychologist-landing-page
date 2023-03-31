@@ -41,7 +41,7 @@ const Sevices = () => {
       imgPath: require('../../images/meditating-girl.png')
     },
     {
-      text: 'Тревога, страхи, переживання',
+      text: 'Тривога, страхи, переживання',
       alt: 'чоловік в окулярах',
       imgPath: require('../../images/man-in-glasses.png')
     }
