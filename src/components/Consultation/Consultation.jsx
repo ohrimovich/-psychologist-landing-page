@@ -57,7 +57,7 @@ const Consultation = ({ isModalOpen, setThanksModalShow }) => {
             <img src={consultationImg} alt="man With Laptop" />
           </div>
           <form id='form'>
-            <p>Опишіть ваше питання чи проблему і я зв'яжусь з вами</p>
+            <p>Опишіть Ваше питання чи проблему, і я сконтактую з Вами</p>
             <label>
               <input placeholder="Ваше ім'я" required minLength='1' pattern="^[А-Яа-яЁёЇїІіЄєҐґ']+$" type="text" name='name' />
               <p className={style.error_message}>Вкажіть ваше ім'я</p>
@@ -68,7 +68,7 @@ const Consultation = ({ isModalOpen, setThanksModalShow }) => {
             </label>
             <label>
               <textarea placeholder="Опишіть вашу проблему" required minLength='2' name='question' rows="5" cols="60"></textarea>
-              <p className={style.error_message}>Опишіть вашу проблему</p>
+              <p className={style.error_message}>Опишіть Вашу проблему</p>
             </label>
             <button>Відправити</button>
          </form>

@@ -18,7 +18,7 @@ const cards = [
     price: '1000 грн',
     quantityOfSessions: '1 сесія',
     durationOfSession: '50 хвилин',
-    descr: 'Зручний спосіб отримати допомогу не зважаючи на ваше розташування',
+    descr: 'Зручний спосіб отримати допомогу, незважаючи на ваше розташування',
     buttonText: 'Записатися',
     shouldOpenModal: true
   },
