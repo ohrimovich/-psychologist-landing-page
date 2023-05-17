@@ -11,7 +11,7 @@ const Sevices = () => {
       imgPath: require('../../images/girl-in-mirror.png')
     },
     {
-      text: 'Проблеми у відносинах',
+      text: 'Проблеми у стосунках',
       alt: 'Пара',
       imgPath: require('../../images/couple.png')
     },
@@ -21,7 +21,7 @@ const Sevices = () => {
       imgPath: require('../../images/apple&donut.png')
     },
     {
-      text: 'Невпевненість в собі',
+      text: 'Невпевненість у собі',
       alt: 'Дівчина в светрі',
       imgPath: require('../../images/girl-sweater.png')
     },
@@ -49,7 +49,7 @@ const Sevices = () => {
   return (
     <section id='services' className={style.services}>
       <Container>
-        <h2 className={style.services_title}>Ситуації з якими я можу Вам допомогти</h2>
+        <h2 className={style.services_title}>Ситуації, з якими я можу Вам допомогти</h2>
         <ul className={style.services_list}>
           {servicesList.map(item => {
             return (

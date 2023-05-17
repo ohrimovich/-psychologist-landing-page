@@ -16,7 +16,7 @@ const Contacts = () => {
             <img src={MariaWithClock} alt="Психолог Марія" />
             <div className={style.content_wrapper}>
               <h2 className={style.title}>Контакти</h2>
-              <p>Буду рада бачити Вас на консультаціях Я на зв'язку у будні дні з 10 до 19 години </p>
+              <p>Буду рада бачити Вас на консультаціях</p>
               <h3 className={style.subtitle}>Графік роботи</h3>
               <ul>
                 <li><ClockIcon className={ style.icon} />Пн-Пт: 10:00-19:00, Сб-Нд: вихідні</li>
