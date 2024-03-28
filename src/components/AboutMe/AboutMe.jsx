@@ -1,18 +1,19 @@
 import style from './aboutMe.module.scss';
 import about_me from '../../images/about-me-img.png'
 import Container from '../Container/Container';
+import { aboutMeContent } from '../../config/content'
 
-const AboutMe = () => {
+const AboutMe = ({ entries }) => {
   return (
     <Container >
-      <section id='about-me' className={style.about_me}>
-        <div className={style.wrapper}>
-          <img src={about_me} alt="Марія в кріслі" />
-          <div className={style.content}>
-            <h2 className={style.title}> Про мене</h2>
-            <p>Я працюю використовуючи метод Транзактного аналізу, який ще називають ОК-ейний метод в його основі лежить твердження, що від народження всі люди ОК і, приймаючи свою ОК-ейність і ОК-ейність інших, можна бути у гармонійних ваєминах з людьми та світом в цілому.</p>
-            <p>Для мене кожен клієнт - це новий всесвіт, наповнений власними переконаннями, емоціями, думками, власним баченням та ставленням до речей і обставин, які його оточують. Знайомство з людиною та внутрішнім світом особистості це шлях, і у кожного він свій, унікальний, тож для мене основне завдання - бути поруч на цьому шляху:</p>
-            <p>допомагати в процесі створення, становлення, розвитку нового, опираючись на аутентичний досвід кожного.</p>
+      <section id='about-me' className={ style.about_me }>
+        <div className={ style.wrapper }>
+          <img src={ about_me } alt="Марія в кріслі" />
+          <div className={ style.content }>
+            <h2 className={ style.title }>{ entries ? entries.fields.title : aboutMeContent.title }</h2>
+            <p>{ entries ? entries.fields.paragraf1 : aboutMeContent.paragraf1 }</p>
+            <p>{ entries ? entries.fields.paragraf2 : aboutMeContent.paragraf2 }</p>
+            <p>{ entries ? entries.fields.paragraf3 : aboutMeContent.paragraf3 }</p> 
           </div>
         </div>
       </section>

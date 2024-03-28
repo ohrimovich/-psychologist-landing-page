@@ -4,12 +4,11 @@ import style from './modal.module.scss';
 import { ReactComponent as CloseIcon } from '../../images/icons/close-icon.svg';
 import { ReactComponent as PhoneIcon } from '../../images/icons/phone-icon.svg';
 import { ReactComponent as OkIcon } from '../../images/icons/ok-icon.svg';
+import { modalContent } from '../../config/content'
 
-const Modal = ({ active, setActive, setThanksModalShow, thanksModalShow }) => {
+const Modal = ({ active, setActive, setThanksModalShow, thanksModalShow, entries }) => {
   
- 
   useEffect(() => {
-  
     const TOKEN = process.env.REACT_APP_TOKEN;
     const CHAT_ID = process.env.REACT_APP_CHAT_ID;
     const URI_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`
@@ -45,33 +44,32 @@ const Modal = ({ active, setActive, setThanksModalShow, thanksModalShow }) => {
     setActive(false);
     setThanksModalShow(false);
   }
-
   return (
     <div className={style.overlay} style={active ? { pointerEvents: 'all', opacity: '1' } : {}} onClick={closingModal}>
       <div className={style.modal} onClick={e => e.stopPropagation() } style={active ? {opacity: '1'} : {opacity: '0'} }>
-        <h2>Записятися на консультацію</h2>
-        <p className={style.text}>Не любите чекати? Телефонуйте мені:</p>
-        <p className={style.tel}><PhoneIcon/><a href="tel:+380976945250">+38 (097) 69 452 50</a></p>
+        <h2>{entries ? entries.fields.title : modalContent.title }</h2>
+        <p className={style.text}>{ entries ? entries.fields.description : modalContent.description }</p>
+        <p className={style.tel}><PhoneIcon /><a href="tel:+380976945250">{ entries ? entries.fields.phoneNumber : modalContent.phoneNumber }</a></p>
         <CloseIcon className={style.close_icon } onClick={() => setActive(false)} />
         <form id='modal-form'>
           <label>
-            <input type="text" name='name' placeholder="Ваше ім'я" required minLength='1' pattern="^[А-Яа-яЁёЇїІіЄєҐґ']+$" />
-            <p className={style.error_message}>Вкажіть ваше ім'я</p>
+            <input type="text" name='name' placeholder={ entries ? entries.fields.fieldName : modalContent.fieldName } required minLength='1' pattern="^[А-Яа-яЁёЇїІіЄєҐґ']+$" />
+            <p className={style.error_message}>{ entries ? entries.fields.fieldNameError : modalContent.fieldNameError }</p>
           </label>
           <label>
-            <input type="tel" placeholder="Телефон" name='phone' required pattern='^((0|\+3)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{10,11}$' />
-            <p className={style.error_message}>Вкажіть ваш номер телефону</p>
+            <input type="tel" placeholder={ entries ? entries.fields.fieldPhone : modalContent.fieldPhone } name='phone' required pattern='^((0|\+3)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{10,11}$' />
+            <p className={style.error_message}>{ entries ? entries.fields.fieldPhoneError : modalContent.fieldPhoneError }</p>
           </label>
-          <button className={style.modal_button}>Залишити заявку</button>
+          <button className={style.modal_button}>{ entries ? entries.fields.buttonText : modalContent.buttonText }</button>
         </form>
-          <p className={style.policy}>Натискаючи на кнопку, Ви даєте згоду на обробку персональних даних та погоджуєтесь з <span>Політикою конфіденційності.</span></p>
+        <p className={ style.policy }>{ entries ? entries.fields.privacyPolicy : modalContent.privacyPolicy }<span>Політикою конфіденційності.</span></p>
       </div>
-      <div className={style.thanks_modal} style={thanksModalShow ? {zIndex: '4'} : {zIndex: '3'} } onClick={e => e.stopPropagation() }>
+      <div className={ style.thanks_modal } style={ thanksModalShow ? {zIndex: '4'} : {zIndex: '3'} } onClick={e => e.stopPropagation() }>
         <CloseIcon className={style.close_icon} onClick={closingModal} />
        <div className={style.icon_wrapper}><OkIcon/></div> 
-        <h2>Дякую</h2>
-        <p>Ваша заявка успішно подана</p>
-        <button className={style.modal_button} type='button' onClick={closingModal}>На Головну</button>
+        <h2>{ entries ? entries.fields.thankYouTitle : modalContent.thankYouTitle }</h2>
+        <p>{ entries ? entries.fields.thankYouText : modalContent.thankYouText }</p>
+        <button className={style.modal_button} type='button' onClick={closingModal}>{ entries ? entries.fields.thankYouButton : modalContent.thankYouButton }</button>
       </div>
     </div>
   )

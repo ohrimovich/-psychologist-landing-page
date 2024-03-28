@@ -1,38 +1,20 @@
 import style from './features.module.scss';
 import Container from '../Container/Container';
 import bg from '../../images/bg_ellipse.png'
+import { featuresContent } from '../../config/content'
 
-const features = [
-  {
-    image: require('../../images/privacy-icon.png'),
-    title: 'Конфіденційність'
-  },
-  {
-    image: require('../../images/empathy-icon.png'),
-    title: 'Екологічні техніки'
-  },
-  {
-    image: require('../../images/techniques-icon.png'),
-    title: 'Емпатія'
-  },
-  {
-    image: require('../../images/transanalysis-icon.png'),
-    title: 'Транзактний аналіз (ОК-ейний метод)'
-  }
-]
-
-const Features = () => {
+const Features = ({ entries }) => {
   return (
-    <section className={style.features}>
+    <section className={ style.features }>
       <Container>
-        <div className={style.wrapper}>
-          <h2 className={style.title}>Особливості співпраці</h2>
-          <ul className={style.features_list}>
-            {features.map((feature, id) => {
+        <div className={ style.wrapper }>
+          <h2 className={ style.title }>{ entries ? entries.fields.title : featuresContent.title }</h2>
+          <ul className={ style.features_list }>
+            {featuresContent.features.map((feature, index) => {
             return (
-              <li key={id} className={style.feature}>
-                <img src={ feature.image} alt={ feature.title} />
-                <p className={style.text}>{ feature.title}</p>
+              <li key={ index } className={ style.feature }>
+                <img src={ feature.image } alt={ feature.title } />
+                <p className={ style.text }>{ entries ? entries.fields.items[index] : feature.title }</p>
             </li>
             )
           })}
