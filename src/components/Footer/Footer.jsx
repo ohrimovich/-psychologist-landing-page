@@ -3,8 +3,9 @@ import Container from '../Container/Container';
 import { ReactComponent as LightLogo } from '../../images/footer-logo.svg';
 import { ReactComponent as EnvelopIcon } from '../../images/icons/envelop-icon.svg';
 import { ReactComponent as PhoneIcon } from '../../images/icons/phone-icon.svg';
+import { footerContent } from '../../config/content'
 
-const Footer = () => {
+const Footer = ({ entries }) => {
 
   const handleClickScroll = (id) => {
 		const element = document.getElementById(id);
@@ -12,30 +13,30 @@ const Footer = () => {
 			element.scrollIntoView({ behavior: 'smooth' });
 		}
 	}
-  
   return (
     <footer>
       <Container>
         <ul className={style.wrapper}>
           <li className={style.logo_wrapper}>
             <LightLogo className={style.logo } />
-            <p>Персональний сайт психолога Марії Янчук <br/>&#169; Всі права захищені 2022</p>
-            <p>Політика конфіденційності</p>
+            <p>{ entries ? entries.fields.text1 : footerContent.text1 }</p>
+            <p>{ entries ? entries.fields.text2 : footerContent.text2 }</p>
+            <p>{ entries ? entries.fields.text3 : footerContent.text3 }</p>
           </li>
           <li className={style.menu}>
-            <h3>Меню</h3>
-            <span onClick={() => {handleClickScroll('about-me')}}>Про мене</span>
-            <span onClick={() => {handleClickScroll('services')}}>Послуги</span>
-            <span onClick={() => {handleClickScroll('prices')}}>Ціни</span>
+            <h3>{ entries ? entries.fields.subtitle1 : footerContent.subtitle1 }</h3>
+            <span onClick={() => { handleClickScroll('about-me') }}>{ entries ? entries.fields.item1 : footerContent.item1 }</span>
+            <span onClick={() => { handleClickScroll('services') }}>{ entries ? entries.fields.item2 : footerContent.item2 }</span>
+            <span onClick={() => { handleClickScroll('prices') }}>{ entries ? entries.fields.item3 : footerContent.item3 }</span>
           </li>
           <li className={style.work_time}>
-            <h3>Час роботи</h3>
-            <p>Пн-Пт: 10:00-19:00, Сб-Нд: вихідні</p>
+            <h3>{ entries ? entries.fields.subtitle2 : footerContent.subtitle2 }</h3>
+            <p>{ entries ? entries.fields.workTime : footerContent.workTime }</p>
           </li>
           <li className={style.contacts}>
-            <h3>Контакти</h3>
-            <p><EnvelopIcon/><a href="mailto:info@mariiayanchuk.com.ua">info@mariiayanchuk.com.ua</a></p>
-            <p><PhoneIcon/><a href="tel:+380976945250">+38 (097) 69 452 50</a></p>
+            <h3>{ entries ? entries.fields.subtitle3 : footerContent.subtitle3 }</h3>
+            <p><EnvelopIcon /><a href={`mailto:${entries ? entries.fields.email : footerContent.email}`}>{ entries ? entries.fields.email : footerContent.email }</a></p>
+            <p><PhoneIcon /><a href="tel:+380976945250">{ entries ? entries.fields.phoneNumber : footerContent.phoneNumber }</a></p>
           </li>
         </ul>
       </Container>

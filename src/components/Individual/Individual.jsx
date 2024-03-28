@@ -3,8 +3,9 @@ import style from './individual.module.scss';
 import Container from '../Container/Container';
 import Maria_desktop from '../../images/Maria-desktop.png';
 import Maria_mobile from '../../images/Maria-mobile.png';
+import { individualContent } from '../../config/content'
 
-const Individual = () => {
+const Individual = ({ entries }) => {
 
   const [windowWidth, setWindowWidth] = useState([window.innerWidth]);
 
@@ -18,14 +19,13 @@ const Individual = () => {
       window.removeEventListener('resize', handleWindowResize);
     };
   }, [windowWidth])
-  
   return (
     <section className={style.individual}>
       <Container>
         <div className={style.wrapper}>
           <div className={style.content}>
-            <h2>Індивідуальна консультація</h2>
-            <p>Індивідуальна консультація - це можливість отримати час тільки для себе, де фокус психолога спрямований на клієнта, углиб внутрішнього світу людини. Кожен у процесі консультації може бути тут і тепер, собою, таким яким він є.</p>
+            <h2>{entries ? entries.fields.title : individualContent.title }</h2>
+            <p>{entries ? entries.fields.description : individualContent.description }</p>
           </div>
           <div  className={style.image_wrapper}>
              <img

@@ -4,10 +4,9 @@ import MariaWithClock from '../../images/Maria-with-clock.png'
 import { ReactComponent as ClockIcon } from '../../images/icons/clock-icon.svg';
 import { ReactComponent as EnvelopIcon } from '../../images/icons/envelop-icon.svg';
 import { ReactComponent as PhoneIcon } from '../../images/icons/phone-icon.svg';
+import { contactsContent } from '../../config/content'
 
-
-
-const Contacts = () => {
+const Contacts = ({ entries }) => {
   return (
     <section id='contacts' className={style.contacts}>
       <Container>
@@ -15,13 +14,13 @@ const Contacts = () => {
           <div className={style.content}>
             <img src={MariaWithClock} alt="Психолог Марія" />
             <div className={style.content_wrapper}>
-              <h2 className={style.title}>Контакти</h2>
-              <p>Буду рада бачити Вас на консультаціях</p>
-              <h3 className={style.subtitle}>Графік роботи</h3>
+              <h2 className={style.title}>{ entries ? entries.fields.title : contactsContent.title }</h2>
+              <p>{ contactsContent.description }</p>
+              <h3 className={style.subtitle}>{entries ? entries.fields.subtitle : contactsContent.subtitle }</h3>
               <ul>
-                <li><ClockIcon className={ style.icon} />Пн-Пт: 10:00-19:00, Сб-Нд: вихідні</li>
-                <li><EnvelopIcon className={ style.icon}/><a href="mailto:info@mariiayanchuk.com.ua">info@mariiayanchuk.com.ua</a></li>
-                <li><PhoneIcon className={ style.icon}/><a href="tel:+380976945250">+38 (097) 69 452 50</a></li>
+                <li><ClockIcon className={style.icon} />{entries ? entries.fields.workTime : contactsContent.workTime }</li>
+                <li><EnvelopIcon className={style.icon} /><a href={`$mailto:${entries ? entries.fields.email : contactsContent.email}`}>{ entries ? entries.fields.email : contactsContent.email }</a></li>
+                <li><PhoneIcon className={style.icon} /><a href="tel:+380976945250">{entries ? entries.fields.phoneNumber : contactsContent.phoneNumber }</a></li>
               </ul>
             </div>
           </div>

@@ -3,9 +3,12 @@ import Container from '../Container/Container';
 import consultationImg from '../../images/consultation-img.png';
 import { useEffect } from 'react';
 import axios from 'axios';
+import Markdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
+import { consultationContent } from '../../config/content'
 
 
-const Consultation = ({ isModalOpen, setThanksModalShow }) => {
+const Consultation = ({ isModalOpen, setThanksModalShow, entries }) => {
   
   const showingThanksModal = () => {
       setThanksModalShow(true);
@@ -45,32 +48,31 @@ const Consultation = ({ isModalOpen, setThanksModalShow }) => {
     
     return () => {form.removeEventListener('submit', submitHandler)}
   })
-  
   return (
     <section id='consultation' className={style.consultation}>
       <Container>
         <h2 className={style.title}>
-          <span>Безкоштовна</span> консультація в месенджері
+          <Markdown rehypePlugins={[rehypeRaw]}>{entries ? entries.fields.title : consultationContent.title}</Markdown >
         </h2>
         <div className={style.wrapper}>
           <div className={style.img_wpapper}>
             <img src={consultationImg} alt="man With Laptop" />
           </div>
           <form id='form'>
-            <p>Опишіть Ваше питання чи проблему, і я сконтактую з Вами</p>
+            <p>{ entries ? entries.fields.formTitle : consultationContent.formTitle }</p>
             <label>
-              <input placeholder="Ваше ім'я" required minLength='1' pattern="^[А-Яа-яЁёЇїІіЄєҐґ']+$" type="text" name='name' />
-              <p className={style.error_message}>Вкажіть ваше ім'я</p>
+              <input placeholder={ entries ? entries.fields.namePlaceholder : consultationContent.fieldName } required minLength='1' pattern="^[А-Яа-яЁёЇїІіЄєҐґ']+$" type="text" name='name' />
+              <p className={style.error_message}>{ entries ? entries.fields.nameFieldError : consultationContent.fieldNameError }</p>
             </label>
             <label>
-              <input placeholder="Телефон" type="tel" required pattern='^((0|\+3)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{10,11}$' name='phone' />
-              <p className={style.error_message}>Вкажіть ваш номер телефону</p>
+              <input placeholder={entries ? entries.fields.phonePlaceholder : consultationContent.fieldPhone} type="tel" required pattern='^((0|\+3)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{10,11}$' name='phone' />
+              <p className={style.error_message}>{entries ? entries.fields.phoneFieldError : consultationContent.fieldPhoneError }</p>
             </label>
             <label>
-              <textarea placeholder="Опишіть вашу проблему" required minLength='2' name='question' rows="5" cols="60"></textarea>
-              <p className={style.error_message}>Опишіть Вашу проблему</p>
+              <textarea placeholder={ entries ? entries.fields.descriptionPlaceholder : consultationContent.fieldQuestion } required minLength='2' name='question' rows="5" cols="60"></textarea>
+              <p className={style.error_message}>{entries ? entries.fields.descriptionError : consultationContent.fieldQuestionError }</p>
             </label>
-            <button>Відправити</button>
+            <button>{entries ? entries.fields.button : consultationContent.buttonText }</button>
          </form>
         </div>
       </Container>
