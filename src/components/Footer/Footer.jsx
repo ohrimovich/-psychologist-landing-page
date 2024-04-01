@@ -35,7 +35,7 @@ const Footer = ({ entries }) => {
           </li>
           <li className={style.contacts}>
             <h3>{ entries ? entries.fields.subtitle3 : footerContent.subtitle3 }</h3>
-            <p><EnvelopIcon /><a href={`mailto:${entries ? entries.fields.email : footerContent.email}`}>{ entries ? entries.fields.email : footerContent.email }</a></p>
+            <p><EnvelopIcon /><a href={`mailto:maria120631@gmail.com`}>{ entries ? entries.fields.email : footerContent.email }</a></p>
             <p><PhoneIcon /><a href="tel:+380976945250">{ entries ? entries.fields.phoneNumber : footerContent.phoneNumber }</a></p>
           </li>
         </ul>

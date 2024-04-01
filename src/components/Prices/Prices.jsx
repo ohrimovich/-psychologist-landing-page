@@ -9,7 +9,7 @@ const Prices = ({ isModalOpen, entries }) => {
   
   useEffect(() => {
     entries ? setCards(entries.fields.items) : setCards(pricesContent.cards) 
-  }, [])
+  }, [entries])
 
   const handleClick = (e) => {
     if (e.target.getAttribute('data-modal')) {

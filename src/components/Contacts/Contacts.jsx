@@ -19,7 +19,7 @@ const Contacts = ({ entries }) => {
               <h3 className={style.subtitle}>{entries ? entries.fields.subtitle : contactsContent.subtitle }</h3>
               <ul>
                 <li><ClockIcon className={style.icon} />{entries ? entries.fields.workTime : contactsContent.workTime }</li>
-                <li><EnvelopIcon className={style.icon} /><a href={`$mailto:${entries ? entries.fields.email : contactsContent.email}`}>{ entries ? entries.fields.email : contactsContent.email }</a></li>
+                <li><EnvelopIcon className={style.icon} /><a href={`mailto:maria120631@gmail.com`}>{ entries ? entries.fields.email : contactsContent.email }</a></li>
                 <li><PhoneIcon className={style.icon} /><a href="tel:+380976945250">{entries ? entries.fields.phoneNumber : contactsContent.phoneNumber }</a></li>
               </ul>
             </div>

@@ -215,4 +215,3 @@ export const modalContent = {
   thankYouButton: 'На Головну'
   
 }
-export default {};
