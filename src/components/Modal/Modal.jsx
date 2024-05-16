@@ -49,7 +49,7 @@ const Modal = ({ active, setActive, setThanksModalShow, thanksModalShow, entries
       <div className={style.modal} onClick={e => e.stopPropagation() } style={active ? {opacity: '1'} : {opacity: '0'} }>
         <h2>{entries ? entries.fields.title : modalContent.title }</h2>
         <p className={style.text}>{ entries ? entries.fields.description : modalContent.description }</p>
-        <p className={style.tel}><PhoneIcon /><a href="tel:+380976945250">{ entries ? entries.fields.phoneNumber : modalContent.phoneNumber }</a></p>
+        <p className={style.tel}><PhoneIcon /><a href="tel:+380933564239">{ entries ? entries.fields.phoneNumber : modalContent.phoneNumber }</a></p>
         <CloseIcon className={style.close_icon } onClick={() => setActive(false)} />
         <form id='modal-form'>
           <label>
